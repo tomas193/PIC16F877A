@@ -1,0 +1,29 @@
+trisb=0
+portb=%00000101
+pause 2000
+portb=%00000000
+b var portb.0
+high b
+pause 200
+low b 
+    
+x var byte
+leds var portb 
+leds=255
+prog:
+    for x=1 to 7
+    leds=ledS<<1
+    pause 200
+    next
+    
+    for x=1 to 7
+    leds=leds>>1
+    pause 200
+    next    
+goto prog
+end
+
+129 +63
+66 +30
+36 +12
+24

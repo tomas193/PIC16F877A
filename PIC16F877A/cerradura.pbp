@@ -1,0 +1,234 @@
+x var byte
+Numero var Byte
+R var Byte
+BIP var porta.0
+LED var porte.0
+DOOR var porta.2
+A var Portb.0
+B var Portb.1
+C var Portb.2
+D var Portb.3
+Uno var Portb.4
+Dos var Portb.5
+Tres var Portb.6
+Cuatro var Portb.7
+setprime var byte
+setsegu var byte
+setercer var byte
+setcuart var byte
+setprime = 1
+setsegu = 2
+setercer = 3
+setcuart = 4
+
+
+Iniciando:
+for r = 1 to 2
+high Led : high Bip
+pause 100
+low Led : low Bip
+next
+
+eeprom 0,[1,2,3,4]
+
+
+reset:
+for r = 1 to 3
+high Led : high Bip
+pause 50
+low Led : low Bip
+pause 50
+if (cuatro = 0) and (uno = 0) then reset
+next
+read 0, setprime
+read 1, setsegu
+read 2, setercer
+read 3, setcuart
+goto teclauno
+
+
+grabauno:
+gosub ptecla : high led
+gosub barrido : gosub ptecla
+high led
+write 0, numero
+
+grabados:
+gosub barrido : gosub ptecla
+high led
+write 1, numero
+
+grabatres:
+gosub barrido : gosub ptecla
+high led
+write 2, numero
+
+grabacuatro:
+gosub barrido : gosub ptecla
+high led
+write 3, numero
+goto reset
+
+
+
+Barrido:
+low a
+If Uno = 0 Then Numero = 1 : Return
+If Dos = 0 Then Numero = 2 : Return
+If Tres = 0 Then Numero = 3 : Return
+If Cuatro = 0 Then Numero = 10 : Return
+high a
+low b
+If Uno = 0 Then Numero = 4 : Return
+If Dos = 0 Then Numero = 5 : Return
+If Tres = 0 Then Numero = 6 : Return
+If Cuatro = 0 Then Numero = 11 : Return
+high b
+low c
+If Uno = 0 Then Numero = 7 : Return
+If Dos = 0 Then Numero = 8 : Return
+If Tres = 0 Then Numero = 9 : Return
+If Cuatro = 0 Then Numero = 12 : Return
+high c
+low d
+If Uno = 0 Then Numero = 14 : Return
+If Dos = 0 Then Numero = 0 : Return
+If Tres = 0 Then Numero = 15 : Return
+If Cuatro = 0 Then Numero = 13 : Return
+high d
+pause 10
+Goto Barrido
+
+
+Ptecla:
+high Led : high Bip
+pause 100
+low Led : low Bip
+
+Espacio:
+If Uno = 0 Then Espacio
+If Dos = 0 Then Espacio
+If Tres = 0 Then Espacio
+If Cuatro = 0 Then Espacio
+pause 25
+Return
+
+
+Teclauno:
+Gosub Barrido
+Gosub Ptecla
+If Numero = setprime Then Teclados
+Goto Falso
+
+Teclados:
+Gosub Barrido : Gosub Ptecla
+If Numero = setsegu Then Teclatres
+Goto Falso1
+
+Teclatres:
+Gosub Barrido : Gosub Ptecla
+If Numero = setercer Then Teclacuatro
+Goto Falso2
+
+Teclacuatro:
+Gosub Barrido : Gosub Ptecla
+If Numero = setcuart Then Openge
+Goto Falso3
+
+Openge:
+For R = 1 To 2
+pause 100
+high Led : high Bip
+pause 100
+low Led : low Bip
+Next
+high Door
+pause 1000
+low Door 
+gosub barrido2
+if numero=10 then grabauno
+Goto Teclauno
+
+Falso:
+Gosub Barrido : Gosub Ptecla
+Falso1:
+Gosub Barrido : Gosub Ptecla
+Falso2:
+Gosub Barrido : Gosub Ptecla
+Falso3:
+For R = 1 To 30
+pause 150
+high Led : high Bip
+pause 150
+low Led : low Bip
+gosub barrido3
+if numero=13 then reset
+Next
+panico:
+high led
+pause 500
+low led
+pause 500
+gosub barrido3
+if numero=13 then reset
+goto panico
+
+Barrido2:
+for x = 0 to 100 
+low a
+If Uno = 0 Then Numero = 1 : Return
+If Dos = 0 Then Numero = 2 : Return
+If Tres = 0 Then Numero = 3 : Return
+If Cuatro = 0 Then Numero = 10 : return
+high a
+low b
+If Uno = 0 Then Numero = 4 : Return
+If Dos = 0 Then Numero = 5 : Return
+If Tres = 0 Then Numero = 6 : Return
+If Cuatro = 0 Then Numero = 11 :Return
+high B
+low C
+If Uno = 0 Then Numero = 7 : Return
+If Dos = 0 Then Numero = 8 : Return
+If Tres = 0 Then Numero = 9 : Return
+If Cuatro = 0 Then Numero = 12 :Return
+high C
+low D
+If Uno = 0 Then Numero = 14 : Return
+If Dos = 0 Then Numero = 0 : Return
+If Tres = 0 Then Numero = 15 : Return
+If Cuatro = 0 Then Numero = 13 :Return
+high D
+pause 10
+next
+low door
+goto teclauno
+
+Barrido3: 
+low a
+If Uno = 0 Then Numero = 1 : Return
+If Dos = 0 Then Numero = 2 : Return
+If Tres = 0 Then Numero = 3 : Return
+If Cuatro = 0 Then Numero = 10 : return
+high a
+low b
+If Uno = 0 Then Numero = 4 : Return
+If Dos = 0 Then Numero = 5 : Return
+If Tres = 0 Then Numero = 6 : Return
+If Cuatro = 0 Then Numero = 11 :Return
+high B
+low C
+If Uno = 0 Then Numero = 7 : Return
+If Dos = 0 Then Numero = 8 : Return
+If Tres = 0 Then Numero = 9 : Return
+If Cuatro = 0 Then Numero = 12 :Return
+high C
+low D
+If Uno = 0 Then Numero = 14 : Return
+If Dos = 0 Then Numero = 0 : Return
+If Tres = 0 Then Numero = 15 : Return
+If Cuatro = 0 Then Numero = 13 :Return
+high D
+pause 10
+return
+End

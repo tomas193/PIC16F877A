@@ -1,0 +1,58 @@
+ADCON1=7
+trisb=0
+trisa=0
+portb=%11101100
+porta=%1000
+pause 2000
+ciclo:
+porta=%1000
+portb=%10111110
+pause 1000
+porta=%1000
+portb=%00011000
+pause 1000
+porta=%1000
+portb=%01110110
+pause 1000
+porta=%1000
+portb=%01111100
+pause 1000
+porta=%1000
+portb=%11011000
+pause 1000
+porta=%1000
+portb=%11101100
+pause 1000
+porta=%1000
+portb=%11001110
+pause 1000
+porta=%1000
+portb=%00111000
+pause 1000
+porta=%1000
+portb=%11111110
+pause 1000
+porta=%1000
+portb=%11111000
+pause 1000
+porta=%1000
+portb=%11111010
+pause 1000
+porta=%1000
+portb=%11001110
+pause 1000
+porta=%1000
+portb=%10100110
+pause 1000
+porta=%1000
+portb=%01011110
+pause 1500
+porta=%1000
+portb=%11100110
+pause 1000
+porta=%1000
+portb=%11100010
+pause 1000
+goto ciclo
+end
+

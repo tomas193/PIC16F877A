@@ -1,0 +1,26 @@
+trisb=0
+portb=%00000101
+pause 2000
+portb=%00000000
+    discoteca:
+    portb=%00000001
+    gosub tiempo
+    portb=%00000010
+    gosub tiempo
+    portb=%00000100
+    gosub tiempo
+    portb=%00001000
+    gosub tiempo
+    portb=%00010000
+    gosub tiempo
+    portb=%00100000
+    gosub tiempo
+    portb=%01000000
+    gosub tiempo
+    portb=%10000000
+    gosub tiempo
+    goto discoteca
+    tiempo:
+    pause 200
+    return
+

@@ -1,0 +1,72 @@
+TRISA=%00000000
+TRISB=%00000000
+TRISD=%00000001
+
+pul var word
+dista var word
+tri var portb.4
+ech var portd.0
+pul=0
+low tri
+
+DEFINE HSER_BAUD 9600
+DEFINE HSER_RCSTA 90h
+DEFINE HSER_TXSTA 24h
+DEFINE HSER_SPBRG 25
+DEFINE HSER_Clear ON
+arranque var byte
+portb=0
+
+inicio:
+high tri
+pauseus 10
+low tri
+
+pulsin ech,1,pul
+dista=((pul*10)/58)
+if dista<30 then
+portb.1=0
+arranque=0
+portb.2=1
+pause 800
+portb.2=0
+endif
+
+
+
+Hserin 100, continuo, [arranque]
+
+
+continuo:
+if arranque="a" then 
+portb.1=1
+pause 20
+endif
+if arranque="b" then
+low portb.1:low portb.0
+endif
+if arranque="c" then 
+portb.0=1
+pause 20
+endif
+if arranque="d" then 
+porte.0=1
+pause 20
+endif
+if arranque="e" then 
+low porte.0:low porte.1
+endif
+if arranque="f" then 
+porte.1=1
+pause 20
+endif
+if portb.1=1 and portb.0=1 then 
+portb=0
+arranque=0
+endif
+goto inicio
+end
+
+
+
+

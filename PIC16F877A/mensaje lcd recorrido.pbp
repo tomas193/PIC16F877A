@@ -1,0 +1,26 @@
+DEFINE LCD_DREG PORTB 
+DEFINE LCD_DBIT 4
+DEFINE LCD_RSREG PORTB
+DEFINE LCD_RSBIT 3
+DEFINE LCD_EREG PORTB
+DEFINE LCD_EBIT 2
+x var byte
+abc var byte
+lcdout $FE, $7
+lcdout $FE,1            
+pause 200
+ini:
+lcdout $FE, $90
+for x=0 to 23
+lookup x,["Hola cetis 58 Tijuana BC"],abc
+lcdout, abc
+pause 400
+next
+lcdout $FE, $D0
+for x=0 to 7
+lookup x,["Tomas #5"],abc
+lcdout, abc
+pause 400
+next
+goto ini
+end

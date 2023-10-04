@@ -1,0 +1,22 @@
+include "modedefs.bas"
+botonA var portb.1
+botonB var portb.2
+botonC var portb.3
+transmitir:
+if botona=0 then envio1
+if botonB=0 then envio2
+if botonC=0 then envio3
+goto transmitir
+envio1:
+serout portb.0,N2400,["A"]
+pause 500
+goto transmitir
+envio2:
+serout portb.0,N2400,["B"]
+pause 500
+goto transmitir
+envio3:
+serout portb.0,N2400,["C"]
+pause 500
+goto transmitir
+end

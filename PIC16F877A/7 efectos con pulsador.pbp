@@ -1,0 +1,195 @@
+trisb=0
+portb=%000000101
+pause 2000
+portb=%000000000
+ADCON1=7
+ciclo:
+portb=%000000000
+if porta.0=0 then ciclo1
+goto ciclo
+ciclo1:
+gosub paro
+a var byte
+for a=0 to 2
+z var byte
+z=1
+portb=%11111110
+pause 80
+gosub paro
+portb=%11111111
+x var byte
+leds var portb
+leds=254
+
+     for x=1 to 7
+     leds=leds-z
+     z=z<<1
+     
+     pause 80
+     next
+
+portb=%01111111
+pause 0
+portb=%11111111
+
+for x=1 to 7
+leds=leds+z
+z=z>>1
+pause 80
+next
+portb=%11111110
+pause 80
+portb=%00000000
+if porta.1=0 then ciclo
+next
+pause 500
+
+d var byte
+for d=0 to 2
+efecto2:
+if porta.1=0 then ciclo
+b var portb.0
+high b
+pause 50
+low b 
+    
+y var byte
+leds1 var portb 
+leds1=1
+prog:
+    for y=1 to 7
+    leds=ledS<<1
+    pause 50
+    next
+    
+    for y=1 to 7
+    leds=leds>>1
+    pause 50
+    next 
+next
+pause 500   
+
+e var byte
+for e=0 to 2
+efecto3:
+if porta.1=0 then ciclo
+portb=%10000001
+pause 100
+portb=%01000010
+pause 100
+portb=%00100100
+pause 100
+portb=%00011000
+pause 100
+portb=%00100100
+pause 100
+portb=%01000010
+pause 100
+portb=%10000001
+pause 100
+next
+pause 500
+
+g var byte
+for g=0 to 2
+if porta.1=0 then ciclo
+efecto4:
+portb=%10101010
+pause 200
+portb=%01010101
+pause 200
+next
+pause 500
+
+h var byte 
+for h=0 to 2
+if porta.1=0 then ciclo
+efecto5:
+portb=%10100000
+pause 200
+portb=%01010000
+pause 200
+portb=%00101000
+pause 200
+portb=%00010100
+pause 200
+portb=%00001010
+pause 200
+portb=%00000101
+pause 200
+portb=%11111111
+pause 300
+portb=%00000000
+pause 300
+portb=%11111111
+pause 300
+portb=%00000000
+
+c var byte
+leds5 var portb 
+leds5=1
+    for c=1 to 7
+    leds=ledS<<1
+    pause 50
+    next
+    
+    for c=1 to 7
+    leds=leds>>1
+    pause 50
+    next
+next
+pause 500 
+      
+i var byte
+for i=0 to 2
+if porta.1=0 then ciclo
+efecto6:
+portb=%10101000
+pause 200
+portb=%01010100
+pause 200
+portb=%00101010
+pause 200
+portb=%00010101
+pause 200
+portb=%00011000
+pause 100
+portb=%00100100
+pause 100
+portb=%01000010
+pause 100
+portb=%10000001
+pause 100
+next
+pause 500
+
+j var byte
+for j=0 to 2
+if porta.1=0 then ciclo
+efecto7:
+f var portb.0
+high f
+pause 50
+low f 
+    
+m var byte
+leds9 var portb 
+leds9=1
+    for m=1 to 7
+    leds9=leds9<<1
+    pause 50
+    next
+portb=%11111111
+pause 300
+portb=%00000000
+pause 300
+portb=%11111111
+pause 300
+portb=%00000000
+next
+pause 500   
+goto ciclo1
+paro:if porta.1=0 then ciclo
+return
+end
+

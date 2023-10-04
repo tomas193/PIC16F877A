@@ -1,0 +1,44 @@
+ADCON1=7
+trisd=0
+portd=%1110110
+pause 2000
+portd=0
+A var portb.0
+B var portb.1
+C var portb.2
+D var portb.3
+uno var portb.4
+dos var portb.5
+tres var portb.6
+cuatro var portb.7
+barrido:
+low a
+if uno=0 then portd=%0001100
+if dos=0 then portd=%0111011
+if tres=0 then portd=%0111110
+if cuatro=0 then portd=%1111101  
+high a
+low b
+if uno=0 then portd=%1101100                      
+if dos=0 then portd=%1110110
+if tres=0 then portd=%1110111   
+if cuatro=0 then portd=%1100111  
+high b
+low c                                                    
+if uno=0 then portd=%0011100    
+if dos=0 then portd=%1111111
+if tres=0 then portd=%1111100
+if cuatro=0 then portd=%1010011
+high c
+low d
+if uno=0 then portd=%1110011    
+if dos=0 then portd=%1011111
+if tres=0 then portd=%1110001   
+if cuatro=0 then portd=%0101111
+high d
+pause 10 
+goto barrido
+end
+
+
+

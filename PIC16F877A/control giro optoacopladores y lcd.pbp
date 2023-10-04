@@ -1,0 +1,31 @@
+ADCON1=7
+DEFINE LCD_DREG PORTB 
+DEFINE LCD_DBIT 4
+DEFINE LCD_RSREG PORTB
+DEFINE LCD_RSBIT 3
+DEFINE LCD_EREG PORTB
+DEFINE LCD_EBIT 2
+lcdout $FE,$87,"#5"
+pause 2000
+ciclo:
+low porte.0:low porte.1:lcdout $FE,1,"Sin movimiento"
+pause 100
+if portb.0=0 then izq
+if portb.1=0 then der
+goto ciclo
+izq:
+lcdout $FE,1
+high porte.0
+lcdout $FE,$84,"Derecha"
+pause 200
+if portb.0=1 then ciclo
+goto izq
+der:
+lcdout $FE,1
+high porte.1
+lcdout $FE,$83,"Izquierda"
+pause 200
+if portb.1=1 then ciclo
+goto der
+
+

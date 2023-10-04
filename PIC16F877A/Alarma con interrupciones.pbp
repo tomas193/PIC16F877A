@@ -1,0 +1,38 @@
+led var portb.1
+chicha var portb.2
+led2 var portb.3
+d var bIT
+p1:
+for d=0 to 1
+on interrupt goto verde1
+intcon=%1001000
+prog1:
+high led
+pause 150
+next
+goto p2
+disable
+verde1:
+low chicha:low led2:high led
+intcon=%10010000
+resume 
+enable
+p2:
+FOR D=0 TO 1
+ON INTERRUPT GOTO verde2
+intcon=%10001000
+prog2:
+high led
+pause 150
+low led
+pause 150
+next
+goto p1
+disable
+verde2:
+high chicha:high led2:low led
+pause 900
+intcon=%10001000
+resume
+enable
+end

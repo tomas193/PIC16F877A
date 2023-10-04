@@ -1,0 +1,41 @@
+ADCON1=7
+trisa=0
+porta=5
+pause 2000
+porta=0
+A var portb.0
+B var portb.1
+C var portb.2
+D var portb.3
+uno var portb.4
+dos var portb.5
+tres var portb.6
+cuatro var portb.7
+barrido:
+low a
+if uno=0 then porta=1
+if dos=0 then porta=8
+if tres=0 then porta=9
+if cuatro=0 then porta=10
+high a
+low b
+if uno=0 then porta=4
+if dos=0 then porta=5
+if tres=0 then porta=12
+if cuatro=0 then porta=11
+high b
+low c
+if uno=0 then porta=13
+if dos=0 then porta=2
+if tres=0 then porta=3
+if cuatro=0 then porta=6
+high c
+low d
+if uno=0 then porta=14
+if dos=0 then porta=0
+if tres=0 then porta=15
+if cuatro=0 then porta=7
+high d
+pause 10 
+goto barrido
+end

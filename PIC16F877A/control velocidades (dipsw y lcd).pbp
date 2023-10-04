@@ -1,0 +1,41 @@
+ADCON1=7
+DEFINE LCD_DREG PORTB 
+DEFINE LCD_DBIT 4
+DEFINE LCD_RSREG PORTB
+DEFINE LCD_RSBIT 3
+DEFINE LCD_EREG PORTB
+DEFINE LCD_EBIT 2
+lcdout $FE,1,"#5"
+pause 2000
+prog:
+lcdout $FE,1
+lcdout $FE,$84,"PWM=0%"
+if porta.0=0 then ciclo1
+if porta.1=0 then ciclo2
+if porta.2=0 then ciclo3
+if porta.3=0 then ciclo4
+pause 200
+goto prog
+ciclo1:
+pwm portb.0,64,30
+lcdout $FE,$84,"PWM=25%"
+if porta.0=1 then prog
+goto ciclo1
+ciclo2:
+pwm portb.0,128,30
+lcdout $FE,$84,"PWM=50%"
+if porta.1=1 then prog
+goto ciclo2
+ciclo3:
+pwm portb.0,191,30
+lcdout $FE,$84,"PWM=75%"
+if porta.2=1 then prog
+goto ciclo3
+ciclo4:
+pwm portb.0,255,30
+lcdout $FE,$84,"PWM=100%"
+if porta.3=1 then prog
+goto ciclo4
+end
+   
+

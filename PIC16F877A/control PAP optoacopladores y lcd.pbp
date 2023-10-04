@@ -1,0 +1,53 @@
+adcon1=7
+izq var porta.0
+der var porta.1
+lado var portb.0
+lado2 var portb.1
+trisb=0
+DEFINE LCD_DREG PORTD
+DEFINE LCD_DBIT 4
+DEFINE LCD_RSREG PORTD
+DEFINE LCD_RSBIT 3
+DEFINE LCD_EREG PORTD
+DEFINE LCD_EBIT 2
+lcdout $fe,$87,"#5"
+pause 2000
+lcdout $fe,1
+
+prog:
+if izq=0 and der=0 then gosub paro
+if izq=0 and der=1 then gosub derecha
+if izq=1 and der=0 then gosub izquierda
+if izq=1 and der=1 then gosub paro
+goto prog
+derecha:
+lcdout $fe,$80,"derecha"
+portb=%1000
+pauseus 2000
+portb=%0100
+pauseus 2000
+portb=%0010
+pauseus 2000
+portb=%0001
+pauseus 2000
+return
+
+izquierda:
+lcdout $fe,$80,"izquierda"
+portb=%0001
+pauseus 2000
+portb=%0010
+pauseus 2000
+portb=%0100
+pauseus 2000
+portb=%1000
+pauseus 2000
+return
+
+paro:
+lcdout $fe,1
+lcdout $fe,$80,"Paro"
+portb=0
+pause 400
+return
+end

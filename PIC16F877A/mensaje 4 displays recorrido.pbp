@@ -1,0 +1,636 @@
+ADCON1=7
+trisb=0
+trisa=0
+x var byte
+for x=0 to 250
+porta=%1000
+portb=236
+pause 1
+next
+                                       
+for x=0 to 250
+porta=%0100
+portb=236
+pause 1
+porta=%1000
+portb=0
+pause 1
+next
+
+for x=0 to 250
+porta=%0010
+portb=236
+pause 1
+porta=%0100
+portb=0
+pause 1
+porta=%1000
+portb=%11011010
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=236
+pause 1
+porta=%0010
+portb=0
+pause 1
+porta=%0100
+portb=%11011010
+pause 1
+porta=%1000
+portb=%10111110
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=0
+pause 1
+porta=%0010
+portb=%11011010
+pause 1
+porta=%0100
+portb=%10111110
+pause 1
+porta=%1000
+portb=%10000110
+pause 1
+next
+ciclo:
+for x=0 to 250
+porta=%0001
+portb=%11011010
+pause 1
+porta=%0010
+portb=%10111110
+pause 1
+porta=%0100
+portb=%10000110
+pause 1
+porta=%1000
+portb=%11111010
+pause 1
+next 
+for x=0 to 250
+porta=%0001
+portb=%10111110
+pause 1
+porta=%0010
+portb=%10000110
+pause 1
+porta=%0100
+portb=%11111010
+pause 1
+porta=%1000
+portb=%00000000
+pause 1
+next
+for x=0 to 250
+porta=%0001
+portb=%10000110
+pause 1
+porta=%0010
+portb=%11111010
+pause 1
+porta=%0100
+portb=%00000000
+pause 1
+porta=%1000
+portb= 166
+pause 1
+next
+for x=0 to 250
+porta=%0001
+portb=%11111010
+pause 1
+porta=%0010
+portb=%00000000
+pause 1
+porta=%0100
+portb= 166
+pause 1
+porta=%1000
+portb= 230
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=%00000000
+pause 1
+porta=%0010
+portb= 166
+pause 1
+porta=%0100
+portb= 230
+pause 1
+porta=%1000
+portb= 198
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=166
+pause 1
+porta=%0010
+portb= 230
+pause 1
+porta=%0100
+portb= 198
+pause 1
+porta=%1000
+portb= 130
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=230
+pause 1
+porta=%0010
+portb= 198
+pause 1
+porta=%0100
+portb= 130
+pause 1
+porta=%1000
+portb= 236
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=198
+pause 1
+porta=%0010
+portb= 130
+pause 1
+porta=%0100
+portb= 236
+pause 1
+porta=%1000
+portb= 0
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=130
+pause 1
+porta=%0010
+portb= 236
+pause 1
+porta=%0100
+portb= 0
+pause 1
+porta=%1000
+portb= 236
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=236
+pause 1
+porta=%0010
+portb= 0
+pause 1
+porta=%0100
+portb=236
+pause 1
+porta=%1000
+portb=254 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=0
+pause 1
+porta=%0010
+portb= 236
+pause 1
+porta=%0100
+portb=254
+pause 1
+porta=%1000
+portb=0 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=236
+pause 1
+porta=%0010
+portb= 254
+pause 1
+porta=%0100
+portb=0
+pause 1
+porta=%1000
+portb=198 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=254
+pause 1
+porta=%0010
+portb= 0
+pause 1
+porta=%0100
+portb=198
+pause 1
+porta=%1000
+portb=190 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=0
+pause 1
+porta=%0010
+portb=198
+pause 1
+porta=%0100
+portb=190
+pause 1
+porta=%1000
+portb=106 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=198
+pause 1
+porta=%0010
+portb=190
+pause 1
+porta=%0100
+portb=106
+pause 1
+porta=%1000
+portb=250 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=190
+pause 1
+porta=%0010
+portb=106
+pause 1
+porta=%0100
+portb=250
+pause 1
+porta=%1000
+portb=236 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=106
+pause 1
+porta=%0010
+portb=250
+pause 1
+porta=%0100
+portb=236
+pause 1
+porta=%1000
+portb=0 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=250
+pause 1
+porta=%0010
+portb=236
+pause 1
+porta=%0100
+portb=0
+pause 1
+porta=%1000
+portb=250 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=236
+pause 1
+porta=%0010
+portb=0
+pause 1
+porta=%0100
+portb=250
+pause 1
+porta=%1000
+portb=162 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=0
+pause 1
+porta=%0010
+portb=250
+pause 1
+porta=%0100
+portb=162
+pause 1
+porta=%1000
+portb=250 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=250
+pause 1
+porta=%0010
+portb=162
+pause 1
+porta=%0100
+portb=250
+pause 1
+porta=%1000
+portb=158 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=162
+pause 1
+porta=%0010
+portb=250
+pause 1
+porta=%0100
+portb=158
+pause 1
+porta=%1000
+portb=28 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=250
+pause 1
+porta=%0010
+portb=158
+pause 1
+porta=%0100
+portb=28
+pause 1
+porta=%1000
+portb=190 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=158
+pause 1
+porta=%0010
+portb=28
+pause 1
+porta=%0100
+portb=190
+pause 1
+porta=%1000
+portb=0 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=28
+pause 1
+porta=%0010
+portb=190
+pause 1
+porta=%0100
+portb=0
+pause 1
+porta=%1000
+portb=198 
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=190
+pause 1
+porta=%0010
+portb=0
+pause 1
+porta=%0100
+portb=198
+pause 1
+porta=%1000
+portb= 130
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=0
+pause 1
+porta=%0010
+portb=198
+pause 1
+porta=%0100
+portb=130
+pause 1
+porta=%1000
+portb= 28
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=198
+pause 1
+porta=%0010
+portb=130
+pause 1
+porta=%0100
+portb= 28
+pause 1
+porta=%1000
+portb=158
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=130
+pause 1
+porta=%0010
+portb= 28
+pause 1
+porta=%0100
+portb=158
+pause 1
+porta=%1000
+portb=250
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb= 28
+pause 1
+porta=%0010
+portb=158
+pause 1
+porta=%0100
+portb=250
+pause 1
+porta=%1000
+portb=186
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=158
+pause 1
+porta=%0010
+portb=250
+pause 1
+porta=%0100
+portb=186
+pause 1
+porta=%1000
+portb= 250
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=250
+pause 1
+porta=%0010
+portb=186
+pause 1
+porta=%0100
+portb= 250
+pause 1
+porta=%1000
+portb=0
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=186
+pause 1
+porta=%0010
+portb= 250
+pause 1
+porta=%0100
+portb=0
+pause 1
+porta=%1000
+portb=207
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb= 250
+pause 1
+porta=%0010
+portb=0
+pause 1
+porta=%0100
+portb=207
+pause 1
+porta=%1000
+portb=167
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=0
+pause 1
+porta=%0010
+portb=207
+pause 1
+porta=%0100
+portb=167
+pause 1
+porta=%1000
+portb=0
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=207
+pause 1
+porta=%0010
+portb=167
+pause 1
+porta=%0100
+portb=0
+pause 1
+porta=%1000
+portb=218
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=167
+pause 1
+porta=%0010
+portb=0
+pause 1
+porta=%0100
+portb=218
+pause 1
+porta=%1000
+portb=190
+pause 1
+next
+
+for x=0 to 250
+porta=%0001
+portb=0
+pause 1
+porta=%0010
+portb=218
+pause 1
+porta=%0100
+portb=190
+pause 1
+porta=%1000
+portb=134
+pause 1
+next 
+goto ciclo
+end
+
+
+
+
+
+
+

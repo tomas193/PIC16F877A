@@ -1,0 +1,23 @@
+botsubir var portb.1
+botbajar var portb.2
+Frec var byte
+Bandera var bit
+frec = 125
+
+Prog:
+pwm portb.0, frec, 30 ' sacar PWM 30 ciclos de 125 señal útil
+if botsubir = 0 then subir
+if botbajar = 0 then bajar
+bandera = 0
+goto prog
+Subir:
+if bandera = 1 then prog
+bandera = 1
+frec = frec + 25
+goto prog
+Bajar:
+if bandera = 1 then Prog
+bandera = 1
+frec = frec - 25
+goto prog
+end

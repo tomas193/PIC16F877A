@@ -1,0 +1,23 @@
+porte=%011
+pause 2000
+porte=0
+led var portb.2
+led2 var portb.1
+on interrupt goto verde
+intcon=%10010000
+prog:
+high led
+pause 200
+low led
+pause 200
+goto prog
+disable
+verde:
+high led2
+pause 2000
+low led2
+intcon=%10010000
+resume
+enable
+end
+

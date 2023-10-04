@@ -1,0 +1,16 @@
+cmcon=7
+trisb=0
+portb=%00010010
+pause 2000
+portb=%00000
+prog:
+if porta.0=0 then encen
+goto prog
+encen:
+high portb.1
+pause 1000
+low portb.1
+pause 1000
+goto prog
+end
+

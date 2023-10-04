@@ -1,0 +1,27 @@
+DEFINE LCD_DREG PORTB 
+DEFINE LCD_DBIT 4
+DEFINE LCD_RSREG PORTB
+DEFINE LCD_RSBIT 3
+DEFINE LCD_EREG PORTB
+DEFINE LCD_EBIT 2
+x var byte
+abc var byte
+pause 200
+ini:
+lcdout $FE,1
+for x=0 to 15
+lookup x,["Microcontrolador"],abc
+lcdout, abc
+pause 200
+next
+pause 200
+LCDOUT $FE, $C0
+for x=0 to 11
+lookup x,["puti abraham"],abc
+lcdout, abc
+pause 200
+next
+pause 2000
+goto ini
+end
+

@@ -1,0 +1,49 @@
+ADCON1=7
+DEFINE LCD_DREG PORTB 
+DEFINE LCD_DBIT 4
+DEFINE LCD_RSREG PORTB
+DEFINE LCD_RSBIT 3
+DEFINE LCD_EREG PORTB
+DEFINE LCD_EBIT 2
+lcdout $FE,$87,"#5"
+pause 2000
+puls var word
+botsubir var porta.0
+botbajar var porta.1
+led var porta.3
+frec var byte
+bandera var bit
+frec=125
+ciclo:
+goto ciclo1: goto prog
+end
+ciclo1:
+count porta.2,1000,puls
+lcdout $FE,1
+lcdout $FE,$83,"Velocidad"
+lcdout $FE,$C6,dec puls,"RPM"
+goto ciclo1
+prog:
+pwm portb.0,frec,30
+low led
+if botsubir=0 then subir
+if botbajar=0 then bajar 
+bandera=0
+goto prog
+subir:
+if frec>249 then aviso 
+if bandera=1 then prog
+high led
+bandera=1
+frec=frec+25
+goto prog
+bajar:
+if frec<26 then aviso
+if bandera=1 then prog
+high led
+bandera=1
+frec=frec-25
+goto prog
+aviso:
+high led
+goto prog

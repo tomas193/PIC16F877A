@@ -1,0 +1,58 @@
+trisb=0
+portb=%00000101
+pause 2000
+portb=%00000000
+    rutina
+    portb=%10000100
+    pause 8000
+        portb=%10000100
+        pause 700
+        portb=%00000100
+        pause 700
+        portb=%10000100
+        pause 700
+        portb=%00000100
+        pause 700
+        portb=%10000100
+        pause 700
+        portb=%00000100
+        pause 700
+        portb=%10000100
+        pause 700
+        portb=%00000100
+        pause 700
+        portb=%10000100
+        pause 700
+        portb=%00000100
+        pause 700
+    portb=%01000100
+    pause 2000
+    portb=%00110000
+    pause 8000
+        portb=%00110000
+        pause 700
+        portb=%00100000
+        pause 700     
+        portb=%00110000
+        pause 700
+        portb=%00100000
+        pause 700
+        portb=%00110000
+        pause 700
+        portb=%00100000
+        pause 700
+        portb=%00110000
+        pause 700
+        portb=%00100000
+        pause 700
+        portb=%00110000
+        pause 700
+        portb=%00100000
+        pause 700
+    portb=%00101000
+    pause 2000
+goto rutina
+end
+    
+    
+    

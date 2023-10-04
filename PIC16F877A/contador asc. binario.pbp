@@ -1,0 +1,19 @@
+trisb=0
+portb=%000000101
+pause 2000
+portb=%000000000
+ADCON1=7
+boton var porta.1
+num var byte
+num=0
+pulsar:
+portb=num
+if boton=0 then contar
+goto pulsar
+contar:
+if boton=0 then contar 
+pause 200
+num=num+1
+goto pulsar 
+end
+

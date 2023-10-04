@@ -1,0 +1,40 @@
+trisb=0
+portb=%000000101
+pause 2000
+portb=%000000000
+ciclo:
+z var byte
+z=1
+portb=%11111110
+pause 200
+portb=%11111111
+x var byte
+leds var portb
+leds=254
+
+     for x=1 to 7
+     leds=leds-z
+     z=z<<1
+     
+     pause 200
+     next
+
+portb=%01111111
+pause 0
+portb=%11111111
+
+  
+for x=1 to 7
+leds=leds+z
+z=z>>1
+pause 200
+next
+goto ciclo
+end
+
+     
+     
+  
+ 
+
+                          

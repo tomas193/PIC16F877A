@@ -1,0 +1,94 @@
+trisb=0
+adcon1=7
+pin1 var porta.0
+pin2 var porta.1
+pin3 var porta.2
+pin4 var porta.3
+DEFINE LCD_DREG PORTD
+DEFINE LCD_DBIT 4
+DEFINE LCD_RSREG PORTD
+DEFINE LCD_RSBIT 3
+DEFINE LCD_EREG PORTD
+DEFINE LCD_EBIT 2
+lcdout $fe,$87,"#5"
+pause 2000
+lcdout $fe,1
+
+prog:
+if pin1=0 then velocidad1
+if pin2=0 then velocidad2
+if pin3=0 then velocidad3
+if pin4=0 then velocidad4
+if pin1=1 and pin2=1 and pin3=1 and pin4=1 then gosub paro
+goto prog
+
+velocidad1:
+lcdout $fe,1
+lcdout $fe,$81,"Velocidad=25%"
+velocidad11:
+if pin1=1 then prog
+portb=%1000
+pauseus 12000
+portb=%0100
+pauseus 12000
+portb=%0010
+pauseus 12000
+portb=%0001
+pauseus 12000
+goto velocidad11
+
+velocidad2:
+lcdout $fe,1
+lcdout $fe,$81,"Velocidad=50%"
+velocidad22:
+if pin2=1 then prog
+portb=%1000
+pauseus 10000
+portb=%0100
+pauseus 10000
+portb=%0010
+pauseus 10000     
+portb=%0001
+pauseus 10000
+goto velocidad22
+
+velocidad3:
+lcdout $fe,1
+lcdout $fe,$81,"Velocidad=75%"
+velocidad33:
+if pin3=1 then prog
+portb=%1000
+pauseus 5000
+portb=%0100
+pauseus 5000
+portb=%0010
+pauseus 5000
+portb=%0001
+pauseus 5000
+goto velocidad33
+
+
+velocidad4:
+lcdout $fe,1
+lcdout $fe,$81,"Velocidad=100%"
+velocidad44:
+if pin4=1 then prog
+portb=%1000
+pauseus 2000
+portb=%0100
+pauseus 2000
+portb=%0010
+pauseus 2000
+portb=%0001
+pauseus 2000
+goto velocidad44
+
+paro:
+lcdout $fe,1
+lcdout $fe,$81,"Velocidad=0%"
+portb=0
+pause 200
+return
+end
+
+

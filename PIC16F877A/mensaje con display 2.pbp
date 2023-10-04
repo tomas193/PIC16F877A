@@ -1,0 +1,58 @@
+trisb=0
+portb=%11101100
+porta=%1000
+pause 2000
+di var byte
+dat var byte
+prog:
+for di=0 to 4 
+lookup di,[218,190,134,250],dat
+portb=dat
+pause 500
+next di
+portb=%00000000
+pause 500
+for di=0 to 4 
+lookup di,[166,230,198,130,236],dat
+portb=dat
+pause 500
+next di
+portb=%00000000
+pause 500
+for di=0 to 1 
+lookup di,[236,254],dat
+portb=dat
+pause 500
+next di
+portb=%00000000
+pause 500
+for di=0 to 4 
+lookup di,[198,190,124,250,236],dat
+portb=dat
+pause 500
+next di
+portb=%00000000
+pause 500
+for di=0 to 5 
+lookup di,[250,162,250,158,28,190],dat
+portb=dat
+pause 500
+next di
+portb=%00000000
+pause 500
+for di=0 to 6 
+lookup di,[198,130,28,158,250,186,250],dat
+portb=dat
+pause 500
+next di
+portb=%00000000
+pause 500
+for di=0 to 1 
+lookup di,[207,167],dat
+portb=dat
+pause 500
+next di
+portb=%00000000
+pause 500
+goto prog
+end

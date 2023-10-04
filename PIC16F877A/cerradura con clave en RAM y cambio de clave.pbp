@@ -1,0 +1,166 @@
+numero var byte
+r var byte
+x var byte
+bip var porta.0
+led var porta.1
+door var porta.2
+a var portb.0
+b var portb.1
+c var portb.2
+d var portb.3
+uno var portb.4
+dos var portb.5
+tres var portb.6
+cuatro var portb.7
+setprime var byte
+setsegu var byte
+setercer var byte
+setcuart var byte
+setprime=1 
+setsegu=2 
+setercer=3 
+setcuart=4
+iniciando:
+high led:high bip
+pause 500
+low led:low bip
+goto teclauno
+grabauno:
+gosub ptecla:high led
+gosub barrido:gosub ptecla
+high led
+setprime=numero
+grabados:
+gosub barrido:gosub ptecla
+high led
+setsegu=numero
+grabatres:
+gosub barrido:gosub ptecla
+high led
+setercer=numero
+grabacuatro:
+gosub barrido:gosub ptecla
+high led
+setcuart=numero
+goto iniciando
+barrido:
+low a
+if uno=0 then numero=1:return
+if dos=0 then numero=2:return
+if tres=0 then numero=3:return
+if cuatro=0 then numero=10:return
+high a
+low b
+if uno=0 then numero=4:return
+if dos=0 then numero=5:return
+if tres=0 then numero=6:return
+if cuatro=0 then numero=11:return
+high b
+low c
+if uno=0 then numero=7:return
+if dos=0 then numero=8:return
+if tres=0 then numero=9:return
+if cuatro=0 then numero=12:return
+high c
+low d
+if uno=0 then numero=14:return
+if dos=0 then numero=0:return
+if tres=0 then numero=15:return
+if cuatro=0 then numero=13:return
+high d
+pause 10
+goto barrido
+ptecla:
+high led:high bip
+pause 100
+low led:low bip
+espacio:
+if uno=0 then espacio
+if dos=0 then espacio
+if tres=0 then espacio
+if cuatro=0 then espacio
+pause 25
+return
+teclauno:
+gosub barrido
+gosub ptecla 
+if numero=setprime then teclados
+goto falso
+teclados:
+gosub barrido:gosub ptecla 
+if numero=setsegu then teclatres
+goto falso1
+teclatres:
+gosub barrido:gosub ptecla 
+if numero=setercer then teclacuatro
+goto falso2
+teclacuatro:
+gosub barrido:gosub ptecla 
+if numero=setcuart then openge
+goto falso3
+openge:
+for r=1 to 2
+pause 100
+high led:high bip
+pause 100
+low led:low bip
+next 
+high door
+pause 1000
+gosub barrido2:gosub ptecla
+if numero=13 then gosub grabauno
+low door
+goto teclauno
+falso:
+gosub barrido:gosub ptecla
+falso1:
+gosub barrido:gosub ptecla
+falso2:
+gosub barrido:gosub ptecla
+falso3:
+for r=1 to 3
+pause 1000
+high led:high bip
+pause 100
+low led:low bip
+next 
+goto teclauno
+barrido2:
+for x=0 to 100
+low a
+if uno=0 then numero=1:return
+if dos=0 then numero=2:return
+if tres=0 then numero=3:return
+if cuatro=0 then numero=10:return
+high a
+low b
+if uno=0 then numero=4:return
+if dos=0 then numero=5:return
+if tres=0 then numero=6:return
+if cuatro=0 then numero=11:return
+high b
+low c
+if uno=0 then numero=7:return
+if dos=0 then numero=8:return
+if tres=0 then numero=9:return
+if cuatro=0 then numero=12:return
+high c
+low d
+if uno=0 then numero=14:return
+if dos=0 then numero=0:return
+if tres=0 then numero=15:return
+if cuatro=0 then numero=13:return
+high d
+pause 10
+next
+low door
+goto teclauno
+end
+
+
+ 
+
+ 
+ 
+ 
+ 

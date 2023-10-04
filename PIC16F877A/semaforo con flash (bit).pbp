@@ -1,0 +1,82 @@
+trisb=0
+portb=%00000101
+pause 2000
+portb=%00000000
+    ledv var portb.7
+    ledv2 var portb.4
+    ledv3 var portb.1
+    rutina
+    portb=%10000101
+    pause 8000
+        High ledv
+        pause 800
+        Low ledv
+        pause 800 
+        High ledv
+        pause 800
+        Low ledv
+        pause 800 
+        High ledv
+        pause 800
+        Low ledv
+        pause 800 
+        High ledv
+        pause 800
+        Low ledv
+        pause 800 
+        High ledv
+        pause 800
+        Low ledv
+        pause 800    
+    portb=%01000101
+    pause 2000
+    portb=%00110001
+    pause 8000
+          High ledv2
+          pause 800
+          low ledv2
+          pause 800   
+          High ledv2
+          pause 800
+          low ledv2
+          pause 800  
+          High ledv2
+          pause 800
+          low ledv2
+          pause 800  
+          High ledv2
+          pause 800
+          low ledv2
+          pause 800  
+          High ledv2
+          pause 800
+          low ledv2
+          pause 800  
+    portb=%00101001
+    pause 2000
+    portb=%00100110
+    pause 7000
+        High ledv3
+        pause 800
+        low ledv3
+        pause 800
+        High ledv3
+        pause 800
+        low ledv3
+        pause 800
+        High ledv3
+        pause 800
+        low ledv3
+        pause 800
+        High ledv3
+        pause 800
+        low ledv3
+        pause 800
+        High ledv3
+        pause 800
+        low ledv3
+        pause 80
+goto rutina 
+end 
+          
+        
