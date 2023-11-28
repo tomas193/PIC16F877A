@@ -17,7 +17,7 @@ next
 pause 200
 LCDOUT $FE, $C0
 for x=0 to 11
-lookup x,["puti abraham"],abc
+lookup x,["hola"],abc
 lcdout, abc
 pause 200
 next
